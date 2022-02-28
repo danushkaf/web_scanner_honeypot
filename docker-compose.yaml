@@ -1,0 +1,25 @@
+version: '2'
+
+networks:
+  honeypot:
+    driver: overlay
+
+services:
+  api:
+    build: ./service/
+    container_name: api
+    ports:
+      - "5000"
+    networks:
+      - honeypot
+
+  nginx:
+    build: ./nginx/
+    ports:
+      - 443:443
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs:ro
+    depends_on:
+      - api
+    networks:
+      - honeypot
