@@ -9,7 +9,8 @@ message = os.environ['MESSAGE']
 try:
     interval = int(interval)
 except ValueError:
-    print('INTERVAL has to be an integer')
+    print('ERROR - INTERVAL has to be an integer')
+    exit(1)
 
 
 @app.route('/', defaults={'path': ''}, methods=['GET'])
