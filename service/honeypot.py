@@ -15,5 +15,3 @@ def events():
     for i, c in enumerate(itertools.cycle('\|/-')):
         yield "Not Found \n"
         time.sleep(5)
-
-# app.run(ssl_context='adhoc')
