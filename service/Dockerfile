@@ -5,7 +5,7 @@ WORKDIR /honeypot
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-COPY . .
+COPY honeypot.py .
 
 EXPOSE 5000
 

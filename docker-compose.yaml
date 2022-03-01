@@ -9,6 +9,11 @@ services:
     container_name: api
     ports:
       - "5000"
+    environment:
+      - FLASK_APP=honeypot
+      - FLASK_ENV=development
+      - INTERVAL=5
+      - MESSAGE=Not Found
     networks:
       - honeypot
 

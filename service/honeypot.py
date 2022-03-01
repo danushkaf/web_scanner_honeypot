@@ -1,8 +1,15 @@
 from flask import Flask, Response, stream_with_context
 import time
 import itertools
+import os
 
 app = Flask(__name__)
+interval = os.environ['INTERVAL']
+message = os.environ['MESSAGE']
+try:
+    interval = int(interval)
+except ValueError:
+    print('INTERVAL has to be an integer')
 
 
 @app.route('/', defaults={'path': ''}, methods=['GET'])
@@ -13,5 +20,5 @@ def all_get(path):
 
 def events():
     for i, c in enumerate(itertools.cycle('\|/-')):
-        yield "Not Found \n"
-        time.sleep(5)
+        yield message + ' \n'
+        time.sleep(interval)
