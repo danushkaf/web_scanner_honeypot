@@ -1,5 +1,6 @@
 # Web Scanner Honeypot
-This service will accept all `GET` calls and will emit text streaming messages in each 5 seconds.
+This service will accept all `GET` calls and will emit text streaming messages in a given interval.
+Time interval and the streaming message is configurable via environment variables in this solution.
 
 ## Quick Start
 ### Setting up
